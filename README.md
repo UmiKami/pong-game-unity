@@ -16,6 +16,6 @@ After the completion of this App I will continue to follow the CS50G course to l
 
 # Next Up
 
-The next game I have in mind to is the Snake game. this will be step up in complexity as there will be more failure points to be weary of. For example:
+The next game I have in mind is the Snake game. this will be step up in complexity as there will be more failure points to be weary of. For example:
   - What happens if the head of the snake turns one way? I can't just change the direction of the rest of the body, I have to turn the body parts of the snake as they reach the turning point and I need to find a way to store the direction and coordinates of the turning point. The turning point also needs to be removed once the last body part goes through it.
   - What happens if there are multiple turning points? I guess I need to store them in array of some sort.
