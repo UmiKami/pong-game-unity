@@ -28,6 +28,34 @@ public class PlayerPaddle : MonoBehaviour
                 transform.position = new Vector3(transform.position.x, transform.position.y - PaddleVerticalSpeed * Time.deltaTime);
             }
         }
+        else
+        {
+
+            if (ball.getDx() > 0.9f)
+            {
+                Debug.Log($"AI Paddle Speed: {PaddleVerticalSpeed}");
+                Debug.Log("Ball going towards the right");
+                int m = ball.getDy() / ball.getDx();
+
+                int targetY = m * (int)(transform.position.x - ball.transform.position.x) + (int)ball.transform.position.y;
+
+                Debug.Log($"Target Y POS: {targetY}");
+
+                if (ball.getDy() > 0 && transform.position.y < targetY && transform.position.y < 4.22f)
+                {
+                    Debug.Log($"Moving Up");
+                    transform.position = new Vector3(transform.position.x, transform.position.y + PaddleVerticalSpeed  * Time.deltaTime);
+                }else if (ball.getDy() < 0 && transform.position.y > targetY && transform.position.y > -4.22f)
+                {
+                    Debug.Log($"Moving down");
+                    transform.position = new Vector3(transform.position.x, transform.position.y - PaddleVerticalSpeed  * Time.deltaTime);
+                }else{
+                    transform.position = new Vector3(transform.position.x, transform.position.y);
+                }
+
+            }
+
+        }
     }
 
 
