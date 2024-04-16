@@ -22,6 +22,13 @@ public class Ball : MonoBehaviour
     public AudioSource paddleHit;
     public AudioSource scoreSfx;
 
+    public int getDx(){
+        return dx;
+    }
+    public int getDy(){
+        return dy;
+    }
+
     void OnCollisionEnter2D(Collision2D collision) => ChangeTrajectory(collision) ;
 
     // Start is called before the first frame update
