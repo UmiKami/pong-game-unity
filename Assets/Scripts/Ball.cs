@@ -11,6 +11,8 @@ public class Ball : MonoBehaviour
 
     public ScoreManager scoreManager;
 
+    public PlayerPaddle paddle;
+
     public TMP_Text countDownText;
 
     private int dx = 15;
@@ -21,6 +23,13 @@ public class Ball : MonoBehaviour
     public AudioSource wallHit;
     public AudioSource paddleHit;
     public AudioSource scoreSfx;
+
+    public int getDx(){
+        return dx;
+    }
+    public int getDy(){
+        return dy;
+    }
 
     void OnCollisionEnter2D(Collision2D collision) => ChangeTrajectory(collision) ;
 
@@ -50,6 +59,7 @@ public class Ball : MonoBehaviour
     void ResetBall()
     {
         transform.position = new Vector3(0,0);
+
         if (paddle.getIsNPC())
         {
             paddle.PaddleVerticalSpeed = Random.Range(1, 4);
@@ -58,6 +68,8 @@ public class Ball : MonoBehaviour
         if (ScoreManager.player1Serving){
 
             dx = 15;
+            dy = 8;
+
 
             dx = Random.Range(dx - 10, dx);
             dy = Random.Range(-dy, dy);

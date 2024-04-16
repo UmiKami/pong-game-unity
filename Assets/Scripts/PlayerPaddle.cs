@@ -1,17 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class PlayerPaddle : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField]
-    private int PaddleVerticalSpeed = 7;
+
+    public int PaddleVerticalSpeed = 7;
 
     [SerializeField]
     private bool isNPC = false;
-  
+
+    public Ball ball;
+
+    public bool getIsNPC(){
+        return isNPC;
+    }
 
     // Update is called once per frame
     void Update()
